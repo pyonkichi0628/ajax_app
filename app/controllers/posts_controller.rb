@@ -8,7 +8,8 @@ class PostsController < ApplicationController
  # end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index 
+    post = Post.create(content: params[:content])
+    #renderメソッドでレスポンスで返却されるデータフォーマットにJSONを指定
+    render json:{ post: post } 
   end
 end
